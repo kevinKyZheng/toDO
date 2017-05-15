@@ -8,8 +8,9 @@ manager.add_command("runserver",
 @manager.command
 def save_todo():
     db.create_all()
-    todo = Todo(content="123")
-    db.session.add(todo)
+    todo_first = Todo(content="111")
+    todo_second = Todo(content="222")
+    db.session.add_all([todo_first,todo_second])
     db.session.commit()
 
 if __name__ =='__main__':
